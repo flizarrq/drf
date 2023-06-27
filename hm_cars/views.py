@@ -9,6 +9,10 @@ from .serializer import CarAllSerializer, CarSerializer
 
 
 # CRUD
+# Create
+# Read
+# Update
+# Delete
 
 class CarListCreateView(APIView):
     def get(self, *args, **kwargs):
@@ -55,7 +59,7 @@ class CarReadUpdateDelete(APIView):
             raise Http404()
         data = self.request.data
         serializer = CarSerializer(car, data, partial=True)
-        serializer.is_valid(raise_exception=True)                                                                                       
+        serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status.HTTP_200_OK)
 
