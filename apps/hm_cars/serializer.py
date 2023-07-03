@@ -8,3 +8,4 @@ class CarBaseSerializer(serializers.ModelSerializer):
         model = CarModel
         # fields = '__all__'
         fields = ('id', 'brand', 'price', 'year', 'created_at', 'updated_at')
+

@@ -1,7 +1,7 @@
-from django.urls import path
-from hm_cars.views import CarListCreateView, CarReadUpdateDelete
+from django.urls import path, include
+
 
 urlpatterns = [
-    path('cars', CarListCreateView.as_view()),
-    path('cars/<int:pk>', CarReadUpdateDelete.as_view())
+    path('cars', include('apps.hm_cars.urls')),
+    path('auto_parks', include('apps.auto_parks.urls'))
 ]

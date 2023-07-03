@@ -39,8 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # my_apps
-    'hm_cars',
-    'core'
+    'core',
+    'apps.hm_cars',
+    'apps.auto_parks'
 
 ]
 
