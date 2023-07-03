@@ -1,28 +1,10 @@
 from rest_framework import serializers
 
-from .models import ModelCars
+from .models import CarModel
 
 
-class CarBaseSerializer(serializers.Serializer):
-    id = serializers.IntegerField(read_only=True)
-    brand = serializers.CharField(max_length=25)
-    year = serializers.IntegerField()
-
-
-class CarAllSerializer(CarBaseSerializer):
-    pass
-
-
-class CarSerializer(CarBaseSerializer):
-    seat_count = serializers.IntegerField()
-    body_type = serializers.CharField(max_length=25)
-    engine_volume = serializers.FloatField()
-
-    def create(self, validated_data):
-        return ModelCars.objects.create(**validated_data)
-
-    def update(self, instance, validated_data):
-        for k, v in validated_data.items():
-            setattr(instance, k, v)
-        instance.save()
-        return instance
+class CarBaseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CarModel
+        # fields = '__all__'
+        fields = ('id', 'brand', 'price', 'year', 'created_at', 'updated_at')

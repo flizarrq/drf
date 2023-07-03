@@ -1,12 +1,12 @@
 from django.db import models
 
+from core.models import BaseModel
 
-class ModelCars(models.Model):
+
+class CarModel(BaseModel):
     class Meta:
         db_table = 'hm_cars'
 
     brand = models.CharField(max_length=25)
+    price = models.IntegerField()
     year = models.IntegerField()
-    seat_count = models.IntegerField()
-    body_type = models.CharField(max_length=25)
-    engine_volume = models.FloatField()
