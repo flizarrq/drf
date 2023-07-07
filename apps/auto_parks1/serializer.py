@@ -1,7 +1,8 @@
 from rest_framework import serializers
 
-from .models import AutoParkModel
 from apps.cars1.serializer import CarSerializer
+
+from .models import AutoParkModel
 
 
 class AutoParkSerializer(serializers.ModelSerializer):

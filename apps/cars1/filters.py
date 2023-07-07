@@ -1,5 +1,6 @@
 from django.db.models import QuerySet
 from django.http import QueryDict
+
 from rest_framework.exceptions import ValidationError
 
 from .models import CarsModel
@@ -7,6 +8,11 @@ from .models import CarsModel
 
 def car_filtered_queryset(query: QueryDict) -> QuerySet:
     qs = CarsModel.objects.all()
+    try:
+        query = query.dict()
+        query.pop('page')
+    except (Exception,):
+        pass
 
     for k, v in query.items():
         match k:

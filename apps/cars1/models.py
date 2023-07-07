@@ -1,4 +1,5 @@
 from django.db import models
+
 from core.models import BaseModel
 
 from apps.auto_parks1.models import AutoParkModel
