@@ -8,11 +8,10 @@ from .models import CarsModel
 
 def car_filtered_queryset(query: QueryDict) -> QuerySet:
     qs = CarsModel.objects.all()
-    try:
-        query = query.dict()
-        query.pop('page')
-    except (Exception,):
-        pass
+
+    query = query.dict()
+    query.pop('page', None)
+    query.pop('size', None)
 
     for k, v in query.items():
         match k:

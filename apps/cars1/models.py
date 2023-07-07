@@ -8,6 +8,7 @@ from apps.auto_parks1.models import AutoParkModel
 class CarsModel(BaseModel):
     class Meta:
         db_table = 'cars1'
+        ordering = ('id',)
 
     brand = models.CharField(max_length=25)
     price = models.IntegerField()
